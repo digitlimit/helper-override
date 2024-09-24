@@ -27,7 +27,11 @@ class Plugin implements PluginInterface
 
     public function onPreAutoloadDump(Event $event)
     {
-        $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
+        $vendorDir = $event
+            ->getComposer()
+            ->getConfig()
+            ->get('vendor-dir');
+
         $autoloadFile = $vendorDir . '/autoload.php';
         $customHelpersFile = __DIR__ . '/Helpers/helpers.php';
 
